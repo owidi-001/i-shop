@@ -1,0 +1,75 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-info" href="{% url 'home'%}">
+      i-shop
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-start">
+
+    </div>
+    <div class="navbar">
+      <a class="navbar-item" href="{% url 'home'%}">
+        shop
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link is-arrowless">
+          Category
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Electronics
+          </a>
+          <a class="navbar-item">
+            Fashion
+          </a>
+          <a class="navbar-item">
+            foods
+          </a>
+          <a class="navbar-item">
+            services
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="navbar-end">
+      {% if request.user.is_authenticated %}
+      <div class="navbar-item">
+        <a href="#" class="link icon has-text-info">
+          <i class="fa fa-search"></i>
+        </a>
+        <a class="navbar-item" href="{% url 'cart' %}">
+          <i class="fa fa-shopping-cart has-text-info"></i>
+        </a>
+      </div>
+      {% else %}
+      <div class="navbar-item">
+        {% comment %}
+        <div class="buttons">
+          <a class="button is-info is-outlined is-small" href="{% url 'register'%}">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light is-small" href="{% url 'login'%}">
+            Log in
+          </a>
+        </div>
+        {% endcomment %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

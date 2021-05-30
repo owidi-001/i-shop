@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top" lang="en">
+{% include '_partials/head.html'%}
+<body>
+    <!-- navbar -->
+    {% include '_partials/nav.html'%}
+    <!-- end nav -->
+    <section class="section">
+        <div class="container">
+            {% block main %}
+        
+            {% endblock main %}
+        </div>
+    </section>
+
+    <!-- footer -->
+    {% include '_partials/footer.html' %}
+    <!-- end footer -->
+</body>
+</html>
