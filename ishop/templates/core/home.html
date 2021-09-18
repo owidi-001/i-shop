@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}Welcome |{% endblock title%}
+
+
 {% block main %}
-<h1>Hello world </h1>
-{% endblock main%}
+<div class="container">
+    <!-- ASIDE SECTION -->
+    <aside class="menu">
+        <p class="menu-label">category</p>
+        <ul class="menu-list general">
+            {% for category in menu_categories %}
+            <li><a href="{% url 'category' category.slug %}"></a><span>{{category.title}}</span></li>
+            {% endfor %}
+        </ul>
+        <hr />
+    </aside>
+    <!-- END ASIDE -->
+
+    <!-- MAIN SECTION -->
+    <main>
+        <!--          START NEW BLOCK-->
+        <div class="columns is-multiline mb-6">
+            <div class="column is-12 has-text-centered mb-6 mb-6">
+                <h2 class="is-size-3">
+                    Newest Products
+                </h2>
+            </div>
+            {% for product in newest_products %}
+            {% include '_partials/list-item.html'%}
+            {% endfor %}
+        </div>
+        <!--            END NEW BLOCK-->
+
+        <!--            START PRODUCTS GRID-->
+        <div class="columns is-multiline is-mobile">
+            {% for product in products %}
+            {% include '_partials/list-item.html'%}
+            {% endfor %}
+        </div>
+        <!--            END PRODUCTS GRID-->
+    </main>
+    <!-- END MAIN -->
+</div>
+{% endblock main %}
