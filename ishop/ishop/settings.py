@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.apps.CoreConfig',
-    'vendors.apps.VendorsConfig',
+    'apps.core',
+    'apps.vendors',
+    'apps.products'
 ]
 # post.apps.PostConfig
 
