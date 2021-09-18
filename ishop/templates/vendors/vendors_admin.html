@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title%} vendors {% endblock title %}
+
+{% block main %}
+    <div class="box">
+        <h1>{{vendor.name}}</h1>
+    <h1>somethings should be here</h1>
+    <a href="{%url 'logout'%}" class="button is-danger is-uppercase">logout</a>
+    </div>
+{% endblock main %}

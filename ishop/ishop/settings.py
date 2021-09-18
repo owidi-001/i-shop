@@ -138,3 +138,8 @@ STATICFILES_DIRS = [BASE_DIR, 'static/']
 # media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# auth
+LOGIN_URL='login'
+LOGIN_REDIRECT_URL='vendor_admin'
+LOGOUT_REDIRECT_URL='home'
