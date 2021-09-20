@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.core',
     'apps.vendors',
-    'apps.products'
+    'apps.products',
+    'apps.cart'
 ]
 # post.apps.PostConfig
 
@@ -145,3 +146,8 @@ MEDIA_URL = '/media/'
 LOGIN_URL='login'
 LOGIN_REDIRECT_URL='vendor_admin'
 LOGOUT_REDIRECT_URL='home'
+
+
+# cart
+SESSION_COOKIE_AGE=86400 #set to one day before the cart is refreshed by the browser
+CART_SESSION_ID='cart'

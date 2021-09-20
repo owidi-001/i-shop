@@ -18,7 +18,7 @@ class Category(models.Model):
         ordering=['ordering']
 
     def __str__(self) -> str:
-        return self.title
+        return f'{self.title} {self.ordering}'
 
 class Product(models.Model):
     """Model definition for Product."""
