@@ -1,7 +1,7 @@
 <div class="product-card">
+    <div class="badge">NEW</div>
     <div class="product-tumb">
         <a href="{% url 'product' product.category.slug product.slug %}">
-            <!-- <img src="{{ product.get_thumbnail }}" alt=""> -->
             <img src="{{ product.image.url }}" alt="">
         </a>
     </div>

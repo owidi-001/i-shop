@@ -17,9 +17,6 @@
     </div>
     <div class="navbar">
       <div class="navbar-item">
-        <!-- <a href="#" class="link icon has-text-info">
-          <i class="fa fa-search"></i>
-        </a> -->
         <form action="{% url 'search'%}" method="get">
           <div class="field has-addons">
             <div class="control">
@@ -38,7 +35,7 @@
     <div class="navbar-end pr-6">
       {% if request.user.is_authenticated %}
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link is-arrowless">
+        <!-- <a class="navbar-link is-arrowless">
           Category
         </a>
 
@@ -59,8 +56,8 @@
           <a class="navbar-item">
             Report an issue
           </a>
-        </div>
-        <a class="navbar-item" href="{% url 'cart' %}">
+        </div> -->
+        <a class="navbar-item title" href="{% url 'cart' %}">
           <i class="fa fa-shopping-cart has-text-dark"></i>
         </a>
       </div>

@@ -5,14 +5,13 @@
 {% block main %}
 <div class="container">
     <!-- ASIDE SECTION -->
-    <aside class="menu">
+    <aside class="menu" id="menu">
         <p class="menu-label">category</p>
         <ul class="menu-list general">
             {% for category in menu_categories %}
-            <li><a href="{% url 'category' category.slug %}"></a><span>{{category.title}}</span></li>
+            <li><a href="{% url 'category' category.slug %}"><span>{{category.title}}</span></a></li>
             {% endfor %}
         </ul>
-        <hr />
     </aside>
     <!-- END ASIDE -->
 
@@ -26,7 +25,7 @@
                 </h2>
             </div>
             {% for product in newest_products %}
-            {% include '_partials/list_item.html'%}
+            {% include '_partials/new_items_list.html'%}
             {% endfor %}
         </div>
         <!--            END NEW BLOCK-->

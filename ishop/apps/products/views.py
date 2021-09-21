@@ -26,7 +26,7 @@ def product(request,category_slug,product_slug):
 
             messages.success(request,'The product was added to the cart')
 
-            return redirect('product',category_slug=category_slug,product_slug=product_slug)
+            return redirect('product',category_slug,product_slug)
     similar_products=list(product.category.products.exclude(id=product.id))
 
     if len(similar_products >=4):
@@ -37,7 +37,7 @@ def product(request,category_slug,product_slug):
 # category view
 def category(request,category_slug):
     category=get_object_or_404(Category,slug=category_slug)
-    return render(request,'products/category',{'category':category})
+    return render(request,'products/category.html',{'category':category})
 
 
 # search 

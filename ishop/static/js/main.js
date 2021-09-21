@@ -1,3 +1,38 @@
+// var isSidebarOpen = false;
+// var sidebar = document.querySelector('aside');
+// var menu = document.getElementById('menu');
+
+
+// // toggle bars and nav close
+// sidebar.addEventListener('click', () => {
+// 	if (isSidebarOpen) {
+// 		menu.innerHTML = '<i class="fa fa-bars"></i>'
+// 		sidebar.style.display = 'none';
+// 		isSidebarOpen = !isSidebarOpen;
+// 	}
+// });
+
+// // display side nav on small devices
+// function show_aside() {
+// 	if (!isSidebarOpen) {
+// 		console.log(sidebar)
+// 		menu.innerHTML = '<i class="fa fa-times"></i>'
+// 		sidebar.style.position = 'fixed';
+// 		sidebar.style.zIndex = '10';
+// 		sidebar.style.display = 'block';
+// 		sidebar.style.width = '75%';
+// 		sidebar.style.border = 'none';
+// 	} else {
+// 		sidebar.style.display = 'none';
+// 		menu.innerHTML = '<i class="fa fa-bars"></i>'
+// 	}
+// 	isSidebarOpen = !isSidebarOpen;
+// }
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
