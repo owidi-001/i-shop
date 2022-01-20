@@ -1,5 +1,5 @@
 import os
-from .config import Config as config
+from .secrets import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -12,9 +12,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if config.development:
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config.ALLOWED_HOSTS
 
 
 # Application definition
@@ -26,7 +29,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.core.apps.CoreConfig',
+    
+    # local Apps
+    'apps.core',
     'apps.vendors',
     'apps.products',
     'apps.cart',
@@ -67,24 +72,25 @@ WSGI_APPLICATION = 'ishop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
-# .env imports for production
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'mydatabase',
-#         'USER': 'mydatabaseuser',
-#         'PASSWORD': 'mypassword',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     }
-# }
+if config.development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': config.ENGINE,
+            'NAME': config.NAME,
+            'USER': config.USER,
+            'PASSWORD': config.PASSWORD,
+            'HOST': config.HOST,
+            'PORT': config.PORT,
+        }
+    }
 
 
 # Password validation
@@ -139,3 +145,5 @@ LOGOUT_REDIRECT_URL='home'
 # cart
 SESSION_COOKIE_AGE=86400 #set to one day before the cart is refreshed by the browser
 CART_SESSION_ID='cart'
+
+# email conf
