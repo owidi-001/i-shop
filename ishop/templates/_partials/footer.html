@@ -1,0 +1,17 @@
+{% load static %}
+
+
+<footer class="footer is-fixed-bottom">
+    <div class="content has-text-centered has-text-info">
+      {% if request.user.is_authenticated %}
+      <small><a href="{% url 'vendor_admin'%}">Vendor admin</a></small>
+      {% else %}
+      <small><a href="{% url 'vendor'%}">Become a Vendor</a></small>
+      {% endif %}
+      <p>
+        <a href="#">@sir owidi 2021</a>.
+      </p>
+    </div>
+  </footer>
+
+<script src="{% static 'js/main.js' %}"></script>

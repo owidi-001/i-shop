@@ -1,0 +1,80 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-dark title pl-6" href="{% url 'home'%}">
+      i-shop
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-start">
+
+    </div>
+    <div class="navbar">
+      <div class="navbar-item">
+        <form action="{% url 'search'%}" method="get">
+          <div class="field has-addons">
+            <div class="control">
+              <input type="search" name="query" class="input" placeholder="Search...">
+            </div>
+            <div class="control">
+              <button class="button is-dark is-uppercase">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+    <div class="navbar-end pr-6">
+      {% if request.user.is_authenticated %}
+      <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <a class="navbar-link is-arrowless">
+          Category
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Electronics
+          </a>
+          <a class="navbar-item">
+            Fashion
+          </a>
+          <a class="navbar-item">
+            foods
+          </a>
+          <a class="navbar-item">
+            services
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div> -->
+        <a class="navbar-item title" href="{% url 'cart' %}">
+          <i class="fa fa-shopping-cart has-text-dark"></i>
+        </a>
+      </div>
+      {% else %}
+      <div class="navbar-item">
+        {% comment %}
+        <div class="buttons">
+          <a class="button is-dark is-outlined is-small" href="{% url 'register'%}">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light is-small" href="{% url 'login'%}">
+            Log in
+          </a>
+        </div>
+        {% endcomment %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

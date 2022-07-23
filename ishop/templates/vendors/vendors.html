@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title%} vendors {% endblock title %}
+
+{% block main %}
+<form action="." method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="field">
+        <div class="control">
+            <button class="button is-info is-uppercase">Sign Up</button>
+        </div>
+        <a href="{%url 'login'%}">Already a vendor?</a>
+    </div>
+</form>
+{% endblock main %}

@@ -1,0 +1,20 @@
+<div class="product-card">
+    <div class="badge">NEW</div>
+    <div class="product-tumb">
+        <a href="{% url 'product' product.category.slug product.slug %}">
+            <img src="{{ product.image.url }}" alt="">
+        </a>
+    </div>
+    <div class="product-details">
+        <span class="product-catagory"><a href="{% url 'category' product.category.slug %}">{{product.category}}</a></span>
+        <h4><a href="{% url 'product' product.category.slug product.slug %}">{{product.title}}</a></h4>
+        <p>{{product.description}}</p>
+        <div class="product-bottom-details">
+            <div class="product-price">${{product.price}}</div>
+            <div class="product-links">
+                <a href=""><i class="fa fa-heart"></i></a>
+                <a href=""><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

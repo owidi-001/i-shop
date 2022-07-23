@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title%} Add product {% endblock title %}
+
+{% block main %}
+<form action="." method="post" enctype="multipart/form-data"> {% comment %}enctype="multipart/form-data" because we're using images here{% endcomment%}
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="field">
+        <div class="control">
+            <button class="button is-info is-uppercase">Save</button>
+        </div>
+        
+    </div>
+</form>
+{% endblock main %}

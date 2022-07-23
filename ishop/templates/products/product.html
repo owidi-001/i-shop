@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title%} {{product.title}} {% endblock title %}
+
+{% block main %}
+
+{% if product.image %}
+<figure class="image is-4by3 mb-6">
+    <img src="{{produc.image.url}}}" alt="">
+</figure>
+{% endif %}
+<h1 class="title">{{product.title}},${{product.price}}</h1>
+<p class="mb-6"><span class="tag is-dark">{{product.vendor.name}}</span></p>
+
+<p>{{product.description}}</p>
+
+{% if similar_products %}
+<hr>
+<div class="columns is-multiline mb-6">
+    <div class="column is-12 has-text-centered mb-6 mb-6">
+        <h2 class="subtitle">
+            Simailar Products
+        </h2>
+    </div>
+
+    {% for product in similar_products %}
+    {% include '_partials/list_item.html'%}
+    {% endfor %}
+    {% endif %}
+
+    {% endblock main %}
