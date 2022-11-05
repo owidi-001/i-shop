@@ -31,8 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # local Apps
-    'core',
-    'vendors',
+    'user',
+    'core', # Client logics
+    'vendors', # Vendor dash
     'products',
     'cart',
 ]
